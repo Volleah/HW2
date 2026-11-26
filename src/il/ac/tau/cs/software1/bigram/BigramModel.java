@@ -154,7 +154,7 @@ public class BigramModel {
         int len=mVocabulary.length;
         vocWriter.write(len+ " words"+System.lineSeparator());
         for (int i=0;i<len;i++){
-            vocWriter.write(i+" "+mVocabulary[i]+System.lineSeparator());
+            vocWriter.write(i+","+mVocabulary[i]+System.lineSeparator());
             for (int j=0;j<len;j++){
                 cntWriter.write(i+","+j+":"+mBigramCounts[i][j]);
             }
