@@ -206,12 +206,10 @@ public class BigramModel {
             return true;
         for (int i=0;i<splitSentence.length-1;i++){
             int index1=findIndex(mVocabulary,splitSentence[i]),index2=findIndex(mVocabulary, splitSentence[i+1]);
-            if ((index1==-1)||(index2==-1)||(mBigramCounts[index1][index2]==0))
+            if (((index1==ELEMENT_NOT_FOUND)||(index2==ELEMENT_NOT_FOUND))||(mBigramCounts[index1][index2]==0))
                 return false;
-            if (i==splitSentence.length-1)
-                return true;
         }
-        return false;
+        return true;
     }
 
     ///////////////////////////////////////////////////////////////////////////
