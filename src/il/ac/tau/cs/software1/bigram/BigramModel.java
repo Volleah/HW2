@@ -95,7 +95,7 @@ public class BigramModel {
             }
             j++;
         }
-        String[] vocabularyIndex = Arrays.copyOfRange(tempTokensArray, 0, i-1);
+        String[] vocabularyIndex = Arrays.copyOfRange(tempTokensArray, 0, i);
         return vocabularyIndex;
     }
     
