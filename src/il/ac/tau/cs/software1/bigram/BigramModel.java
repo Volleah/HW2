@@ -202,18 +202,15 @@ public class BigramModel {
      */
     public boolean isLegalSentence(String sentence) { // Question 5
         String[] splitSentence=sentence.split(" ");
-        for (int i=0;i<splitSentence.length-1;i++)
-        {
+        if ((sentence==null)||((splitSentence.length==1)&&(findIndex(mVocabulary,splitSentence[0])!=-1)))
+            return true;
+        for (int i=0;i<splitSentence.length-1;i++){
             int index1=findIndex(mVocabulary,splitSentence[i]),index2=findIndex(mVocabulary, splitSentence[i+1]);
-            if (((index1==-1)||(index2==-1))||(mBigramCounts[index1][index2]==0))
+            if ((index1==-1)||(index2==-1)||(mBigramCounts[index1][index2]==0))
                 return false;
-            if (i==splitSentence.length-2)
+            if (i==splitSentence.length-1)
                 return true;
         }
-        if (sentence==null)
-            return true;
-        if ((splitSentence.length==1)&&(findIndex(mVocabulary,splitSentence[0])!=-1))
-            return true;
         return false;
     }
 
