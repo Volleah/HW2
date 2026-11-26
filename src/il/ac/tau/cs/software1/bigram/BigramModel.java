@@ -156,7 +156,9 @@ public class BigramModel {
         for (int i=0;i<len;i++){
             vocWriter.write(i+","+mVocabulary[i]+System.lineSeparator());//this should work
             for (int j=0;j<len;j++){
-                cntWriter.write(i+","+j+":"+mBigramCounts[i][j]+System.lineSeparator());
+                int pairCount=mBigramCounts[i][j];
+                if (pairCount!=0)
+                    cntWriter.write(i+","+j+":"+pairCount+System.lineSeparator());
             }
         }
         vocWriter.close();
