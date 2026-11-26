@@ -147,8 +147,8 @@ public class BigramModel {
      * @pre: fileName is a legal file path
      */
     public void saveModel(String fileName) throws IOException { // Question 3
-        String vocName = fileName.substring(0,fileName.length()-4)+VOC_FILE_SUFFIX;
-        String cntName = fileName.substring(0,fileName.length()-4)+COUNTS_FILE_SUFFIX;
+        String vocName = fileName.substring(0,fileName.length())+VOC_FILE_SUFFIX;
+        String cntName = fileName.substring(0,fileName.length())+COUNTS_FILE_SUFFIX;
         BufferedWriter vocWriter = new BufferedWriter(new FileWriter(vocName));
         BufferedWriter cntWriter = new BufferedWriter(new FileWriter(cntName));
         int len=mVocabulary.length;
