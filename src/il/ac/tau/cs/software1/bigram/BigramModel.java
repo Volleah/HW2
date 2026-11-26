@@ -89,13 +89,13 @@ public class BigramModel {
         int i=0,j=0;
         while ((i<14500)&&(j<tokens.length)){
             String token=normalizeWord(tokens[j]);
-            if (findIndex(tempTokensArray,token)==ELEMENT_NOT_FOUND){
+            if ((findIndex(tempTokensArray,token)==ELEMENT_NOT_FOUND)&&(token!=null)){
                 tempTokensArray[i]=token;
                 i++;
             }
             j++;
         }
-        String[] vocabularyIndex = Arrays.copyOfRange(tempTokensArray, 0, i);
+        String[] vocabularyIndex = Arrays.copyOfRange(tempTokensArray, 0, i-1);
         return vocabularyIndex;
     }
     
@@ -134,7 +134,8 @@ public class BigramModel {
                 }
             }
         }
-        return counts;
+        bReader.close();
+        return counts;  
     }
 
 
