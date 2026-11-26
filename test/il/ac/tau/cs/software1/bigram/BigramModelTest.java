@@ -112,7 +112,7 @@ class BigramModelTest {
         assertTrue(model.isLegalSentence("love"));
 
         assertFalse(model.isLegalSentence("love is is"));
-        // assertFalse(model.isLegalSentence("love the beatles"));
+        assertFalse(model.isLegalSentence("love the beatles"));
         // assertFalse(model.isLegalSentence("beatles"));
     }
 
