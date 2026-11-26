@@ -113,7 +113,7 @@ class BigramModelTest {
 
         assertFalse(model.isLegalSentence("love is is"));
         assertFalse(model.isLegalSentence("love the beatles"));
-        // assertFalse(model.isLegalSentence("beatles"));
+        assertFalse(model.isLegalSentence("beatles"));
     }
 
     // ------------------------------------------- Everything together (Q1 + Q2)
