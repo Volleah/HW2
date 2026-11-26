@@ -1,8 +1,10 @@
 package il.ac.tau.cs.software1.bigram;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Locale;
@@ -145,7 +147,20 @@ public class BigramModel {
      * @pre: fileName is a legal file path
      */
     public void saveModel(String fileName) throws IOException { // Question 3
-        // TODO: implement
+        String vocName = fileName.substring(0,fileName.length()-4)+VOC_FILE_SUFFIX;
+        String cntName = fileName.substring(0,fileName.length()-4)+COUNTS_FILE_SUFFIX;
+        BufferedWriter vocWriter = new BufferedWriter(new FileWriter(vocName));
+        BufferedWriter cntWriter = new BufferedWriter(new FileWriter(cntName));
+        int len=mVocabulary.length;
+        vocWriter.write(len+ " words"+System.lineSeparator());
+        for (int i=0;i<len;i++){
+            vocWriter.write(i+" "+mVocabulary[i]+System.lineSeparator());
+            for (int j=0;j<len;j++){
+                cntWriter.write(i+","+j+":"+mBigramCounts[i][j]);
+            }
+        }
+        vocWriter.close();
+        cntWriter.close();
     }
 
     /*
