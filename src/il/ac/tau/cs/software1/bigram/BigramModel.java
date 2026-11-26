@@ -207,7 +207,8 @@ public class BigramModel {
             int index1=findIndex(mVocabulary,splitSentence[i]),index2=findIndex(mVocabulary, splitSentence[i+1]);
             if (((index1==-1)||(index2==-1))||(mBigramCounts[index1][index2]==0))
                 return false;
-            
+            if (i==splitSentence.length-2)
+                return true;
         }
         if (sentence==null)
             return true;
