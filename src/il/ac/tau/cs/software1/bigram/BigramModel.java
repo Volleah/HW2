@@ -147,14 +147,14 @@ public class BigramModel {
      * @pre: fileName is a legal file path
      */
     public void saveModel(String fileName) throws IOException { // Question 3
-        String vocName = fileName.substring(0,fileName.length())+VOC_FILE_SUFFIX;
-        String cntName = fileName.substring(0,fileName.length())+COUNTS_FILE_SUFFIX;
+        String vocName = fileName+VOC_FILE_SUFFIX;
+        String cntName = fileName+COUNTS_FILE_SUFFIX;
         BufferedWriter vocWriter = new BufferedWriter(new FileWriter(vocName));
         BufferedWriter cntWriter = new BufferedWriter(new FileWriter(cntName));
         int len=mVocabulary.length;
         vocWriter.write(len+ " words"+System.lineSeparator());
         for (int i=0;i<len;i++){
-            vocWriter.write(i+","+mVocabulary[i]+System.lineSeparator());
+            vocWriter.write(i+","+mVocabulary[i]+System.lineSeparator());//this should work
             for (int j=0;j<len;j++){
                 cntWriter.write(i+","+j+":"+mBigramCounts[i][j]);
             }
